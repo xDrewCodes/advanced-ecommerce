@@ -1,13 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+
+html {
+  --theme__color: #d99d26;
+  --bg__color: #fffeb8;
+
+  scroll-behavior: smooth;
+}
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 body {
@@ -48,7 +53,7 @@ li {
 
 h1 {
   font-size: 56px;
-  color: #7342d6;
+  color: var( --theme__color );
   margin-bottom: 24px;
   text-align: center;
 }
@@ -68,7 +73,7 @@ button:active {
 }
 
 .btn {
-  background-color: #7342d6;
+  background-color: var( --theme__color );
   color: white;
   padding: 12px 24px;
   font-size: 20px;
@@ -77,11 +82,12 @@ button:active {
 }
 
 .purple {
-  color: #7342d6;
+  color: var( --theme__color );
 }
 
 .logo {
   width: 160px;
+  filter: hue-rotate(145deg)
 }
 
 .nav__container {
@@ -98,7 +104,7 @@ button:active {
   margin-left: 16px;
   text-decoration: none;
   font-size: 20px;
-  color: #7342d6;
+  color: var( --theme__color );
   font-weight: bold;
   padding: 8px;
 }
@@ -108,7 +114,7 @@ button:active {
 }
 
 .nav__link--primary {
-  border: 2px solid #7342d6;
+  border: 2px solid var( --theme__color );
   border-radius: 4px;
 }
 
@@ -120,7 +126,7 @@ button:active {
   background-color: transparent;
   font-size: 40px;
   border: none;
-  color: #7342d6;
+  color: var( --theme__color );
   display: none;
 }
 
@@ -183,11 +189,11 @@ LANDING
 */
 
 #landing {
-  background-color: rgba(115, 66, 214, 0.1)
+  background-color: var( --bg__color )
 }
 
 header {
-  height: calc(100vh - 80px);
+  height: calc(100vh - 80px + 12vw);
 }
 
 .header__container {
@@ -197,17 +203,18 @@ header {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: flex-start;
 }
 
 .header__description {
+  margin: 60px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .header__img--wrapper {
-  padding: 20px;
+  padding: 0 120px;
 
   /* Added this after the tutorial to 
   show it over the wave on larger screens */
@@ -286,8 +293,8 @@ HIGHLIGHTS
 }
 
 .highlight__img {
-  border: 2px solid #7342d65d;
-  color: #7342d6;
+  border: 2px solid var( --theme__color );
+  color: var( --theme__color );
   width: 100px;
   height: 100px;
   display: flex;
@@ -312,7 +319,7 @@ FEATURES
 
 #features {
   padding-top: 8vw;
-  background-color: rgba(115, 66, 214, 0.1);
+  background-color: var( --bg__color );
 }
 
 .books {
@@ -373,7 +380,7 @@ EXPLORE
 */
 
 #explore {
-  background-color: rgba(115, 66, 214, 0.1);
+  background-color: var( --bg__color );
 }
 
 /* 
@@ -417,7 +424,7 @@ BOOKS PAGE
 */
 
 #books__body {
-  background-color: rgba(115, 66, 214, 0.1);
+  background-color: var( --bg__color );
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -457,7 +464,7 @@ select {
   justify-content: center;
   padding-top: 60px;
   font-size: 60px;
-  color: #7342d6;
+  color: var( --theme__color );
 }
 
 .fa-spinner {
