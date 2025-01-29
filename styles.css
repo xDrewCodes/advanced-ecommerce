@@ -446,16 +446,24 @@ BOOKS PAGE
 }
 
 select {
-  background-color: #fff;
+  appearance: none;;
+  background-color: var( --bg__color );
   border-radius: 4px;
-  border: 1px solid #dcdfe6;
-  color: #606266;
+  border: 1px solid var( --theme__color );
+  color: var( --theme__color );
   height: 40px;
+  font-size: 16px;;
+  font-weight: 500;
   line-height: 40px;
   outline: none;
   padding: 0 16px;
   width: 100%;
   max-width: 200px;
+}
+
+select option:disabled {
+  background-color: #e0b152;
+  color: white;
 }
 
 .books__loading {

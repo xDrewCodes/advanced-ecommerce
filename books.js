@@ -5,9 +5,9 @@ function renderBooks(filter) {
   const books = getBooks()
 
   if (filter == "LOW_TO_HIGH") {
-    books.sort((a, b) => parseFloat(a.salePrice ? a.salePrice : a.originalPrice) - parseFloat(b.salePrice ? b.salePrice : b.originalPrice))
+    books.sort((a, b) => parseFloat(a.salePrice || a.originalPrice) - parseFloat(b.salePrice || b.originalPrice))
   } else if (filter == "HIGH_TO_LOW") {
-    books.sort((a, b) => parseFloat(b.salePrice ? b.salePrice : b.originalPrice) - parseFloat(a.salePrice ? a.salePrice : a.originalPrice))
+    books.sort((a, b) => parseFloat(b.salePrice || b.originalPrice) - parseFloat(a.salePrice || a.originalPrice))
   } else if (filter == "RATING") {
     books.sort((a, b) => parseFloat(b.rating) - parseFloat(a.rating))
   }
