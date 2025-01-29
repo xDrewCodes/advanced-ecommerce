@@ -1,10 +1,30 @@
 
-function renderBooks() {
+function renderBooks(filter) {
 
   const booksWrapper = document.querySelector('.books')
   const books = getBooks()
 
+  if (filter == "LOW_TO_HIGH") {
+    books.sort((a, b) => parseFloat(a.salePrice ? a.salePrice : a.originalPrice) - parseFloat(b.salePrice ? b.salePrice : b.originalPrice))
+  } else if (filter == "HIGH_TO_LOW") {
+    books.sort((a, b) => parseFloat(b.salePrice ? b.salePrice : b.originalPrice) - parseFloat(a.salePrice ? a.salePrice : a.originalPrice))
+  } else if (filter == "RATING") {
+    books.sort((a, b) => parseFloat(b.rating) - parseFloat(a.rating))
+  }
+
+
   const bookElements = books.map((book) => {
+
+    let point = `<i class="fas fa-star"></i>`
+    let halfPoint = `<i class="fas fa-star-half-alt"></i>`
+    let rating = ''
+
+    for (let i = 0; i < Math.floor(book.rating); i++) {
+      rating += point
+    }
+    if (book.rating % 1 !== 0) { rating += halfPoint }
+
+
 
     return `<div class="book">
     <figure class="book__img--wrapper">
@@ -14,24 +34,26 @@ function renderBooks() {
       ${book.title}
     </div>
     <div class="book__ratings">
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star-half-alt"></i>
+      ${rating}
     </div>
     <div class="book__price">
-      <span class="book__price--normal">$${book.originalPrice.toFixed(2)}</span> $00
+    ${book.salePrice ? `<span class="book__price--normal">$${book.originalPrice.toFixed(2)}</span>` : `<span>$${book.originalPrice.toFixed(2)}</span>`} 
+    ${book.salePrice ? `<span class="book__price--sale">$${book.salePrice.toFixed(2)}</span>` : ''}
     </div>
   </div>`
   })
 
   booksWrapper.innerHTML = bookElements.join('')
-  console.log(bookElements)
 
 }
 
 renderBooks()
+
+
+function filterBooks(e) {
+  renderBooks(e.target.value)
+}
+
 
 
 // FAKE DATA
