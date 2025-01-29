@@ -6,6 +6,8 @@ html {
   --bg__color: #fffeb8;
 
   scroll-behavior: smooth;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 * {
@@ -476,6 +478,9 @@ select option:disabled {
 }
 
 .fa-spinner {
+  font-size: 60px;
+  color: var( --theme__color );
+  margin: 32px auto;
   animation: rotate 600ms infinite linear;
 }
 
